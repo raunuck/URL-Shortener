@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="long_url" placeholder="Paste your url here">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if new_url %}
+    <div>
+        <h2 style="color: black;">Congrats your URL is generated!</h2>
+        <a style="color: black;" href="/{{ new_url }}">localhost:8000/{{new_url}}</a>
+    </div>
+    {% endif %}
+</body>
+</html>
